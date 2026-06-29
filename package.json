@@ -1,0 +1,15 @@
+{
+  "name": "zk-skill-package",
+  "version": "1.0.0",
+  "description": "YOU OS / ZiqaKernel agent accelerator",
+  "main": "bin/zk-setup.js",
+  "bin": {
+    "zk-setup": "bin/zk-setup.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ali-Jemo/zk-skill-package.git"
+  },
+  "author": "Ali Hussein",
+  "license": "MIT"
+}
