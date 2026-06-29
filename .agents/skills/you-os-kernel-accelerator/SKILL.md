@@ -117,6 +117,14 @@ Known project context:
 - Serial logs are more reliable than visual guessing.
 - VNC visual output can freeze while timer/scheduler still runs.
 - Userspace client visibility depends on ELF loading, SHM attach, IPC setup, Flush handling, and compositor presentation.
+
+## Advanced Debugging
+When standard serial/panic logging fails, utilize low-level debug primitives:
+
+- **QEMU GDB Stub**: Run QEMU with `-s -S` to enable a GDB stub. Connect via `gdb-multiarch` using `target remote :1234`.
+- **VMI (Virtual Machine Introspection)**: Leverage QEMU/Bochs features to inspect memory/registers without guest awareness.
+- **Serial I/O**: Primary debug path; ensure logging is non-blocking (e.g., ring-buffer with async flush).
+- **Panic/Fault Hooking**: Ensure the `panic_handler` dumps CPU state (registers, stack, fault address) to serial before halting.
 ```
 
 Do not assume the project is a normal userspace Rust application.
